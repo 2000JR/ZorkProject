@@ -1,11 +1,13 @@
-import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.*;
-import java.applet.*;
-import java.awt.*;
+
 
 public class Items {
  
+
+
+
+public Items(String string, String string2, boolean b, int i, int j) {
+	// TODO Auto-generated constructor stub
+}
 
 public class java {
 
