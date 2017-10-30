@@ -1,9 +1,11 @@
 package game;
 
-import java.io.*;
-import java.util.Enumeration;
 
-public class Game {
+import java.util.Enumeration;
+import java.io.*;
+
+
+class Game {
 		
 	private static final String filename = "SpaceStation.dat";
 		
@@ -14,8 +16,6 @@ public class Game {
 		{		
 			
 			FileInputStream fin = new FileInputStream(filename);
-
-			
 	
 			ObjectInputStream objectIn = new ObjectInputStream(fin);
 
@@ -106,6 +106,3 @@ public class Game {
 			}
 		}
 	}
-
-
-

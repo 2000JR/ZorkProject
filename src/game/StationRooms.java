@@ -1,7 +1,7 @@
 package game;
 
 public final class StationRooms {
-	 
+	
 	public static String filename = "SpaceStation.dat";
 
 		public StationRooms(String string, String string2) {
@@ -23,7 +23,7 @@ public final class StationRooms {
 			StationRooms R2F1E1 = new StationRooms ("", "Exit SouthWest StationRooms before NW");
 			StationRooms R3F1E1 = new StationRooms ("","Exit elevator and StationRooms SouthEast");
 			StationRooms R4F1E2 = new StationRooms  ("", "Exit SE ");
-			StationRooms R5F1E2 = new StationRooms  ("","Exit NW, SE");
+			StationRooms R5F1E2 = new StationRooms  ("","");
 			StationRooms R6F1E2 = new StationRooms	("","");
 			// Floor 2
 			StationRooms R7F2E1 = new StationRooms ("","");
@@ -62,7 +62,7 @@ public final class StationRooms {
 			R4F1E2.addExit ( e4 );
 			R5F1E2.addExit ( e5 );
 			R6F1E2.addExit ( e6 );
-			//adding it 
+			//adding it
 			game.addLocation (R1F1E1);
 			game.addLocation (R2F1E1);
 			game.addLocation (R3F1E1);
