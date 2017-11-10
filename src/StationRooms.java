@@ -7,7 +7,7 @@ public final class StationRooms {
 	private String shortDescription;
 	private String longDescription;
 	private String roomName;
-	private ArrayList roomExits;
+	private ArrayList<Exit> roomExits;
 	private ArrayList itemsInRoom;
 	private boolean power;
 	
@@ -17,7 +17,7 @@ public final class StationRooms {
 		shortDescription = new String();
 		longDescription = new String();
 		roomName = new String();
-		roomExits = new ArrayList();
+		roomExits = new ArrayList<Exit>();
 		itemsInRoom = new ArrayList();
 		power = false;
 		
@@ -54,6 +54,50 @@ public final class StationRooms {
 		if(roomExits.contains(exit)) {
 			roomExits.remove(exit);
 		}
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
+	public String getLongDescription() {
+		return longDescription;
+	}
+
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+	public ArrayList getItemsInRoom() {
+		return itemsInRoom;
+	}
+
+	public void setItemsInRoom(ArrayList itemsInRoom) {
+		this.itemsInRoom = itemsInRoom;
+	}
+
+	public boolean isPower() {
+		return power;
+	}
+
+	public void setPower(boolean power) {
+		this.power = power;
+	}
+
+	public ArrayList getRoomExits() {
+		return roomExits;
 	}
 	
 /*	private static final Object game = null;

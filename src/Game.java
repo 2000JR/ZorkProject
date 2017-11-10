@@ -1,32 +1,35 @@
 
-import java.util.ArrayList;
+import java.util.*;
 
-import java.util.Scanner;
+
 
 
 
 public class Game {
 	static StationRooms currentLocation;
 	static String command;
-	static ArrayList inventory = new ArrayList(); // Haven't used inventory into the room description yet
+	//static ArrayList inventory = new ArrayList(); // Haven't used inventory into the room description yet
 	
 	public static void main(String [] args) {
 		// Use your ISPlaying code
-		boolean isPlaying = true;
-	
+		//boolean isPlaying = true;
+		boolean loop = true;
 	
 		//floor 1
-		StationRooms R1F1E1 = new StationRooms ("First StationRooms", "You wake up with no recollection of"
-				+ " where you are and how you get here you see an exit SouthEast and a few items around you");
-		StationRooms R2F1E1 = new StationRooms ("", "Exit SouthWest StationRooms before NW");
-		StationRooms R3F1E1 = new StationRooms ("","Exit elevator and StationRooms SouthEast");
-		StationRooms R4F1E2 = new StationRooms  ("", "Exit SE ");
-		StationRooms R5F1E2 = new StationRooms  ("","Exit NW, SE");
+		StationRooms R1F1E1 = new StationRooms ("R1F1E1","The air in the room is very thin and smells strange. It is probably best to not stay here for long." + "\n"
+				+ "There are 2 exits, one going north and one going south");
+		StationRooms R2F1E1 = new StationRooms ("R2F1E1","The room is very small but has a small crate in the middle that seems to require a keycard." + "\n" 
+				+ "There is an exit leading south.");
+		StationRooms R3F1E1 = new StationRooms ("R3F1E1","It's a small room with stairs leading down to the second floor.");
+		StationRooms R4F1E2 = new StationRooms  ("R2F2E1","It's a large room with stairs leading up to the first floor." + "\n" 
+				+ "There are 2 exits, one going west and one going east.");
+		StationRooms R5F1E2 = new StationRooms  ("R1F2E2","It's a small room with what seems to be an elevator" + "\n" + "There is an exit going east.");
 		StationRooms R6F1E2 = new StationRooms	("","");
 		// Floor 2
 		StationRooms R7F2E1 = new StationRooms ("","");
 		StationRooms R8F2E1 = new StationRooms  ("","");
-		StationRooms R9F2E1 = new StationRooms  ("","");
+		StationRooms R9F2E1 = new StationRooms  ("R3F2E1","It's a small dark room with an alien in the center, luckily he's asleep." + "\n" 
+				+ "There are 2 exits, one leading west and one leading east");
 		StationRooms R10F2E1 = new StationRooms  ("","");
 		// Floor 3
 		StationRooms R11F3E1 = new StationRooms  ("","");
@@ -131,6 +134,7 @@ public class Game {
 		Exit EE2OUT = new Exit (Exit.OUT, R7F2E1);
 		Exit EE3OUT = new Exit (Exit.OUT, R12F3E1);
 		Exit EE4OUT = new Exit (Exit.OUT, R17F4E1);
+	
 		// adding Exits to the rooms 
 		R1F1E1.addExit ( R1e1 );
 		R2F1E1.addExit ( R2e1 );
@@ -163,7 +167,7 @@ public class Game {
 		R14F3E1.addExit (R14e3);
 		R15F3E1.addExit ( R15e1 );
 		R15F3E1.addExit ( R15e2 );
-		R15F3E1.addExit(R15e2);
+		R15F3E1.addExit (R15e2);
 		R16F3E1M0.addExit ( R16e1 );
 		R17F4E1.addExit ( R16e2 );
 		R17F4E1.addExit ( R17e1 );
@@ -173,18 +177,32 @@ public class Game {
 		R19F4E1.addExit ( R19e1 );
 		R19F4E1.addExit ( R19e2 );
 		R20F4E1.addExit ( R20e1 );
-		E1.addExit(EE1toE2);
-		E1.addExit(EE1OUT);
-		E2.addExit(EE2toE3);
-		E2.addExit(EE2toE1);
-		E2.addExit(EE2OUT);
-		E3.addExit(EE3toE4 );
-		E3.addExit(EE3toE2);
-		E3.addExit(EE3OUT);
-		E4.addExit(EE4toE3);
-		E4.addExit(EE4OUT);
+		E1.addExit (EE1toE2);
+		E1.addExit (EE1OUT);
+		E2.addExit (EE2toE3);
+		E2.addExit (EE2toE1);
+		E2.addExit (EE2OUT);
+		E3.addExit (EE3toE4);
+		E3.addExit (EE3toE2);
+		E3.addExit (EE3OUT);
+		E4.addExit (EE4toE3);
+		E4.addExit (EE4OUT);
 		//adding The Rooms into Game 
-		Game.addLocation(R1F1E1);
+		
+		currentLocation = R5F1E2;
+		
+		showinglocation();
+		while (loop) {
+			Scanner keyboard = new Scanner(System.in);
+			System.out.println("What do you want to do?");
+			String command = keyboard.nextLine().toUpperCase();
+			if(command.equals("LOOK")) {
+					showinglocation();
+			}
+		}
+		
+	
+/*		Game.addLocation(R1F1E1);
 		Game.addLocation(R2F1E1);
 		Game.addLocation(R3F1E1);
 		Game.addLocation(R4F1E2);
@@ -289,7 +307,7 @@ public class Game {
 		Game.addExit(EE4OUT);
 		Game.addExit(EE4toE3);
 		// Set current location
-		Game.setCurrentLocation ( R1F1E1 );
+		Game.setCurrentLocation ( R1F1E1 );}*/
 	
 		// The stuff Below You can use your showLocation and Current Location Code
 	
@@ -302,7 +320,20 @@ public class Game {
 	
 }
 **/
-	private static void setCurrentLocation(StationRooms r1f1e1) {
+	
+		public static void showinglocation() {
+			System.out.println(currentLocation.getRoomName());
+			System.out.println(currentLocation.getShortDescription());
+			System.out.println("The exits are: ");
+			for(int i=0;i<currentLocation.getRoomExits().size();i++) {
+				Exit tempexit = (Exit) currentLocation.getRoomExits().get(i);
+				
+				System.out.println(tempexit.getDirectionName() + " " + tempexit.getLeadsTo());
+			}
+				
+			}
+		
+	/*private static void setCurrentLocation(StationRooms r1f1e1) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -315,5 +346,5 @@ public class Game {
 	private static void addLocation(StationRooms r2f1e1) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 }
