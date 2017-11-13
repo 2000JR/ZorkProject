@@ -5,6 +5,7 @@ import java.util.*;
 
 
 
+
 public class Game {
 	static StationRooms currentLocation;
 	static String command;
@@ -15,40 +16,35 @@ public class Game {
 		//boolean isPlaying = true;
 		boolean loop = true;
 	
-		//floor 1
-		StationRooms R1F1E1 = new StationRooms ("R1F1E1","The air in the room is very thin and smells strange. It is probably best to not stay here for long." + "\n"
-				+ "There are 2 exits, one going north and one going south");
-		StationRooms R2F1E1 = new StationRooms ("R2F1E1","The room is very small but has a small crate in the middle that seems to require a keycard." + "\n" 
-				+ "There is an exit leading south.");
-		StationRooms R3F1E1 = new StationRooms ("R3F1E1","It's a small room with stairs leading down to the second floor.");
-		StationRooms R4F1E2 = new StationRooms  ("R2F2E1","It's a large room with stairs leading up to the first floor." + "\n" 
-				+ "There are 2 exits, one going west and one going east.");
-		StationRooms R5F1E2 = new StationRooms  ("R1F2E2","It's a small room with what seems to be an elevator" + "\n" + "There is an exit going east.");
-		StationRooms R6F1E2 = new StationRooms	("","");
+		// Floor 1
+		StationRooms R1F1E1 = new StationRooms(" ", "", " ", false);
+		StationRooms R2F1E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R3F1E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R4F1E2  = new StationRooms(" ", "", " ", false);
+		StationRooms R5F1E2  = new StationRooms(" ", "", " ", false);
+		StationRooms R6F1E2  = new StationRooms(" ", "", " ", false);
 		// Floor 2
-		StationRooms R7F2E1 = new StationRooms ("","");
-		StationRooms R8F2E1 = new StationRooms  ("","");
-		StationRooms R9F2E1 = new StationRooms  ("R3F2E1","It's a small dark room with an alien in the center, luckily he's asleep." + "\n" 
-				+ "There are 2 exits, one leading west and one leading east");
-		StationRooms R10F2E1 = new StationRooms  ("","");
+		StationRooms R7F2E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R8F2E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R9F2E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R10F2E1  = new StationRooms(" ", "", " ", false);
 		// Floor 3
-		StationRooms R11F3E1 = new StationRooms  ("","");
-		StationRooms R12F3E1 = new StationRooms  ("","");
-		StationRooms R13F3E1 = new StationRooms  ("","");
-		StationRooms R14F3E1 = new StationRooms  ("","");
-		StationRooms R15F3E1 = new StationRooms  ("","");
-		StationRooms R16F3E1M0 = new StationRooms ("Maze",""); // Use this to link the room to the maze
-		// adding more rooms to maze soon
+		StationRooms R11F3E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R12F3E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R13F3E1 = new StationRooms(" ", "", " ", false);
+		StationRooms R14F3E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R15F3E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R16F3E1M0  = new StationRooms(" ", "", " ", false);
 		// Floor 4
-		StationRooms R17F4E1 = new StationRooms ("","");
-		StationRooms R18F4E1 = new StationRooms ("","");
-		StationRooms R19F4E1 = new StationRooms ("","");
-		StationRooms R20F4E1 = new StationRooms ("","");
-		// Elevator
-		StationRooms E1 = new StationRooms ("","");
-		StationRooms E2 = new StationRooms ("","");
-		StationRooms E3 = new StationRooms ("","");
-		StationRooms E4 = new StationRooms ("","");
+		StationRooms R17F4E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R18F4E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R19F4E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R20F4E1  = new StationRooms(" ", "", " ", false);
+		// Elevators
+		StationRooms E1  = new StationRooms(" ", "", " ", false);
+		StationRooms E2  = new StationRooms(" ", "", " ", false);
+		StationRooms E3  = new StationRooms(" ", "", " ", false);
+		StationRooms E4  = new StationRooms(" ", "", " ", false); 
 		
 		
 		// Exits for Floor 1
@@ -330,9 +326,8 @@ public class Game {
 				
 				System.out.println(tempexit.getDirectionName() + " " + tempexit.getLeadsTo());
 			}
-				
-			}
-		
+			
+		}
 	/*private static void setCurrentLocation(StationRooms r1f1e1) {
 		// TODO Auto-generated method stub
 		

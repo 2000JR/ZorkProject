@@ -17,8 +17,8 @@ public final class StationRooms {
 		shortDescription = new String();
 		longDescription = new String();
 		roomName = new String();
-		roomExits = new ArrayList<Exit>();
-		itemsInRoom = new ArrayList();
+		/* roomExits = new ArrayList<Exit>();
+		itemsInRoom = new ArrayList(); */
 		power = false;
 		
 	}
@@ -27,24 +27,24 @@ public final class StationRooms {
 		shortDescription = new String();
 		longDescription = new String();
 		roomName = title;
-		roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		/* roomExits = new ArrayList();
+		itemsInRoom = new ArrayList(); */
 		power = false;
 	}
 	public StationRooms(String title, String shortdescrition) {
 		shortDescription = shortDescription;
 		longDescription = new String();
 		roomName = title;
-		roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		/*roomExits = new ArrayList();
+		itemsInRoom = new ArrayList(); */
 		power = false;
 	}
-	public StationRooms(String title, String shortdescrition, String longdescription) {
-		shortDescription = shortDescription;
-		longDescription = longDescription;
+	public StationRooms(String title, String SD, String LD, boolean b) {
+		shortDescription = SD;
+		longDescription = LD;
 		roomName = title;
-		roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		/*roomExits = new ArrayList();
+		itemsInRoom = new ArrayList(); */
 		power = false;
 	}
 	public void addExit(Exit exit) {
@@ -86,6 +86,15 @@ public final class StationRooms {
 
 	public void setItemsInRoom(ArrayList itemsInRoom) {
 		this.itemsInRoom = itemsInRoom;
+	}
+	
+	public void addItem(Item item) {
+		this.itemsInRoom.add(item);
+	}
+
+	public void removeItem(Item item) {
+		if(this.itemsInRoom.contains(item))
+		this.itemsInRoom.remove(item);
 	}
 
 	public boolean isPower() {
