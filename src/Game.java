@@ -1,4 +1,6 @@
 
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -7,44 +9,65 @@ import java.util.*;
 
 
 public class Game {
+	private Vector StationRooms;
 	static StationRooms currentLocation;
-	static String command;
+	static String command = null;
+	private Vector Exits = new Vector();
 	//static ArrayList inventory = new ArrayList(); // Haven't used inventory into the room description yet
 	
 	public static void main(String [] args) {
 		// Use your ISPlaying code
 		//boolean isPlaying = true;
 		boolean loop = true;
-	
+		DataInputStream din = new DataInputStream ( System.in );
+		System.out.println("Welcome to our Space Adventure game! You wake up in a room with no recollection of how you go here."
+				+ " \n" +"Your task is to find a way out of this strange place. Click Enter to continue.");
+		for (;;)
+		{
+			
+
+			// Get user input
+			try
+			{
+				command = din.readLine();
+				
+				// Print a new line
+				System.out.println();
+			}
+			catch (IOException e)
+			{
+			}
+			
 		// Floor 1
-		StationRooms R1F1E1 = new StationRooms(" ", "", " ", false);
-		StationRooms R2F1E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R3F1E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R4F1E2  = new StationRooms(" ", "", " ", false);
-		StationRooms R5F1E2  = new StationRooms(" ", "", " ", false);
-		StationRooms R6F1E2  = new StationRooms(" ", "", " ", false);
+		StationRooms R1F1E1 = new StationRooms("R1F1E1", "It's the captain's room of the ship aka “The Bridge”" ,"There us an exit leading south.");
+		StationRooms R2F1E1  = new StationRooms("R2F1E1", "It's a small room with an elevator in it.","There are 2 exits, one going north and one going south." );
+		StationRooms R3F1E1  = new StationRooms("R3F1E1", "It's the room where the captain of the station sleeps.","There is an exit leading north.");
+		StationRooms R4F1E2  = new StationRooms("R4F1E2", "The room is very small but has a small crate in the middle that seems to require a keycard.","There is an exit leading south.");
+		StationRooms R5F1E2  = new StationRooms("R5F1E2 ", "The air in the room is very thin and smells strange. It is probably best to not stay here for long.",
+				 "There are 2 exits, one going north and one going south");
+		StationRooms R6F1E2  = new StationRooms("R6F1E2", "It's a small room with stairs leading down to the second floor.\"","The stairs leads SouthWest");
 		// Floor 2
-		StationRooms R7F2E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R8F2E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R9F2E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R10F2E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R7F2E1  = new StationRooms("R7F2E1", "It's a small room with what seems to be an elevator","There is an exit going east.");
+		StationRooms R8F2E1  = new StationRooms("R8F2E1", "It's a large room with stairs leading up to the first floor.","There are 2 exits, one going west and one going east.");
+		StationRooms R9F2E1  = new StationRooms("R9F2E1", "It's a small dark room with an alien in the center, luckily he's asleep.","There are 2 exits, one leading west and one leading east.");
+		StationRooms R10F2E1  = new StationRooms("R10F2E1", "It's a small room with stairs leading down to the third floor.", "There is an exit leading west.");
 		// Floor 3
-		StationRooms R11F3E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R12F3E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R13F3E1 = new StationRooms(" ", "", " ", false);
-		StationRooms R14F3E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R15F3E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R16F3E1M0  = new StationRooms(" ", "", " ", false);
+		StationRooms R11F3E1  = new StationRooms("R11F3E1", "It's a dark room with a bunch of control panels that aren't powered.","There are 2 exits, one going west and one going east.");
+		StationRooms R12F3E1  = new StationRooms("R12F3E1", "It's a small room with what seems to be an elevator","There is an exit going east.");
+		StationRooms R13F3E1 = new StationRooms("R13F3E1", "It's a small broom closet.", "There is an exit going west.");
+		StationRooms R14F3E1  = new StationRooms("R14F3E1", "It's a large room with a giant z on the floor.", "There is an exit going south.");
+		StationRooms R15F3E1  = new StationRooms("R15F3E1", "It's another large room with power control for the station at the corner of the room.","There are 2 exits, one going north and one going west.");
+		StationRooms R16F3E1M0  = new StationRooms("R16F3E1M0", "This is the link to the maze");
 		// Floor 4
-		StationRooms R17F4E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R18F4E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R19F4E1  = new StationRooms(" ", "", " ", false);
-		StationRooms R20F4E1  = new StationRooms(" ", "", " ", false);
+		StationRooms R17F4E1  = new StationRooms("R17F4E1", "It's a small room with an elevator in it","There is an exit leading west.");
+		StationRooms R18F4E1  = new StationRooms("R18F4E1", "It's the start of a long hallway to what seems to be the escape pods.","The hallway continue east with an exit to the west.");
+		StationRooms R19F4E1  = new StationRooms("R19F4E1", "It's the end of the long hallway with three aliens in it.","The exit for the hallway continue east with an exit to the west but the aliens block your progress.");
+		StationRooms R20F4E1  = new StationRooms("R20F4E1", "It's the room with the escape pods for the station.","There is an exit leading west.");
 		// Elevators
-		StationRooms E1  = new StationRooms(" ", "", " ", false);
-		StationRooms E2  = new StationRooms(" ", "", " ", false);
-		StationRooms E3  = new StationRooms(" ", "", " ", false);
-		StationRooms E4  = new StationRooms(" ", "", " ", false); 
+		StationRooms E1  = new StationRooms("E1", "There are 3 floors to go to F2, F3, F4");
+		StationRooms E2  = new StationRooms("E2", "There are 3 floors to go to F1, F3, F4");
+		StationRooms E3  = new StationRooms("E3", "There are 3 floors to go to F1, F2, F4");
+		StationRooms E4  = new StationRooms("E4", "There are 3 floors to go to F1, F2, F3"); 
 		
 		
 		// Exits for Floor 1
@@ -187,18 +210,54 @@ public class Game {
 		
 		currentLocation = R5F1E2;
 		
-		showinglocation();
+		//Game.showinglocation();
 		while (loop) {
 			Scanner keyboard = new Scanner(System.in);
+			System.out.println(currentLocation.getRoomName());
+			System.out.println(currentLocation.getShortDescription());
 			System.out.println("What do you want to do?");
 			String command = keyboard.nextLine().toUpperCase();
 			if(command.equals("LOOK")) {
-					showinglocation();
+				validCommand = true;
+				System.out.println(currentLocation.getLongDescription());
+					Game.showinglocation();
+					
 			}
-		}
+			if(command.equals("QUIT")) {
+				validCommand = true;
+				System.out.println ("Okay. Bye!");
+				System.exit(0);
+				
+			}
+			if (command.length() == 0)
+			{
+				System.out.println ("Nope");
+			
+			}
+			if (!validCommand)
+			{
+				System.out.println ("Not a valid command");
+				System.out.println ();
+			}
+			for (Enumeration e = Game.getCurrentLocation().getRoomExits().elements(); e.hasMoreElements();)
+			{
+				Exit an_exit = (Exit) e.nextElement();
+
+				if ( (an_exit.getDirectionName().compareTo(command) == 0) ||
+					 (an_exit.getShortDirectionName().compareTo(command) == 0 )
+				   )
+				{
+					// Set location to the location pointed to by exit
+					setCurrentLocation( an_exit.getLeadsTo() );
+
+					break;
+				} 
+
+
+		}}}
 		
-	
-/*		Game.addLocation(R1F1E1);
+	/*
+		Game.addLocation(R1F1E1);
 		Game.addLocation(R2F1E1);
 		Game.addLocation(R3F1E1);
 		Game.addLocation(R4F1E2);
@@ -301,21 +360,10 @@ public class Game {
 		Game.addExit(EE3toE4);
 		//E4
 		Game.addExit(EE4OUT);
-		Game.addExit(EE4toE3);
-		// Set current location
-		Game.setCurrentLocation ( R1F1E1 );}*/
-	
-		// The stuff Below You can use your showLocation and Current Location Code
-	
-		//showlnglocation();
+		Game.addExit(EE4toE3); 
+		} */
 	}
-/*public static void showlnglocation() {
-	System.out.println(currentlocation.getRoomName());
-	System.out.println(currentlocation.getRoomLngDesc());
-	
-	
-}
-**/
+	static boolean validCommand = false;
 	
 		public static void showinglocation() {
 			System.out.println(currentLocation.getRoomName());
@@ -326,20 +374,43 @@ public class Game {
 				
 				System.out.println(tempexit.getDirectionName() + " " + tempexit.getLeadsTo());
 			}
-			
-		}
-	/*private static void setCurrentLocation(StationRooms r1f1e1) {
-		// TODO Auto-generated method stub
-		
+			command = command.toUpperCase();
+		/*	for (Enumeration e = Game.getCurrentLocation().getRoomExits().elements(); e.hasMoreElements();)
+			{
+				Exit an_exit = (Exit) e.nextElement();
+
+				if ( (an_exit.getDirectionName().compareTo(command) == 0) ||
+					 (an_exit.getShortDirectionName().compareTo(command) == 0 )
+				   )
+				{
+					// Set location to the location pointed to by exit
+					setCurrentLocation( an_exit.getLeadsTo() );
+
+					break;
+				} 
+
+				// If no valid commands, warn the user is invalid
+				
+				*/
+			}
+			 
+public static StationRooms getCurrentLocation()
+	{
+		return currentLocation;
 	}
 
+	
 	private static void addExit(Exit e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void addLocation(StationRooms r2f1e1) {
+	private static void addLocation(StationRooms StationRoom) {
 		// TODO Auto-generated method stub
 		
-	}*/
+	}
+private static void setCurrentLocation(StationRooms leadsTo) {
+	// TODO Auto-generated method stub
+	Game.currentLocation = leadsTo;
+}
 }
