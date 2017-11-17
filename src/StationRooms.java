@@ -9,7 +9,7 @@ public final class StationRooms {
 	private String roomName;
 	private Vector roomExits;
 	// private ArrayList<Exit> roomExits;
-	private ArrayList itemsInRoom;
+	private ArrayList roomItems;
 	private boolean power;
 	
 	
@@ -20,7 +20,7 @@ public final class StationRooms {
 		roomName = new String();
 		roomExits =new Vector();
 		//roomExits = new ArrayList<Exit>();
-		itemsInRoom = new ArrayList();
+		roomItems = new ArrayList();
 		power = false;
 		
 	}
@@ -31,7 +31,7 @@ public final class StationRooms {
 		roomName = title;
 		roomExits = new Vector();
 		//roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		roomItems = new ArrayList();
 		power = false;
 	}
 	public StationRooms(String title, String SD) {
@@ -40,7 +40,7 @@ public final class StationRooms {
 		roomName = title;
 		roomExits = new Vector();
 		//roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		roomItems = new ArrayList();
 		power = false;
 	}
 	public StationRooms(String title, String SD, String LD) {
@@ -49,7 +49,7 @@ public final class StationRooms {
 		roomName = title;
 		roomExits = new Vector();
 		//roomExits = new ArrayList();
-		itemsInRoom = new ArrayList();
+		roomItems = new ArrayList();
 		power = false;
 	}
 	
@@ -85,15 +85,19 @@ public final class StationRooms {
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-/*
-	public ArrayList getItemsInRoom() {
-		return itemsInRoom;
+	public ArrayList getRoomItems() {
+		return roomItems;
 	}
 
-	public void setItemsInRoom(ArrayList itemsInRoom) {
-		this.itemsInRoom = itemsInRoom;
+	public void addRoomItems(Items item) {
+		roomItems.add(item);
 	}
-*/
+	
+	public void removeRoomItems(Items item) {
+		if(roomItems.contains(item)) {
+		this.roomItems.remove(item);
+	}
+	}
 	public boolean isPower() {
 		return power;
 	}

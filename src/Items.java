@@ -52,10 +52,13 @@ public int getAttackPower() {
 
 public void setAttackPower(int attackPower) {
 	this.attackPower = attackPower;
-
-}
 }
 
 
 
 
+
+
+
+
+}
