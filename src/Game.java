@@ -205,7 +205,7 @@ public class Game {
 						R3F1E1.addItems(waterBottle);
 						R3F1E1.addItems(Gun);
 						R3F1E1.addItems(escapePodKey);
-						room44.addItems(keyCard2);
+						room1.addItems(keyCard2);
 						
 		// Exits for Floor 1
 		//Room 1 movement
@@ -639,6 +639,7 @@ public class Game {
 			if (inventory.contains(keyCard2)) {
 				MAZE.addExit ( R16e2 );
 				System.out.println("");
+				break;
 			}
 
 		
